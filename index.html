@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediMate-Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="/src/chatbot-image.svg">
+</head>
+<body>
+
+    <header class="app-header" role="banner">
+        <section class="header-top">
+            <a class="button" href="#"><img src="src/PGO-logo.svg" alt="PGO logo"></a>
+        </section>
+        <section class="header-nav header-bottom header-bottom--main">
+            <a class="button nav-cta" href="#"><img class="svg-invertable" src="src/back-arrow.svg" alt="Back arrow"><p>Terug</p></a> 
+            <h2>Beter voorbereid naar de huisarts</h2>
+        </section>
+        <section class="header-nav header-bottom header-nav-chat header-bottom--chat">
+            <a class="button nav-cta" href="#"><img class="svg-invertable" src="src/back-arrow.svg" alt=""><p>Terug</p></a> 
+            <section class="header-nav"><img src="/src/chatbot-image.svg" alt="Medimate robot" class="hero-icon"><h3>MediMate</h3></section>
+            <button class="button button-cta"><img src="src/again.svg" alt=""><p>Begin opnieuw</p></button>
+        </section>
+    </header>
+
+
+    <main>   
+        <section class="screen screen--welcome" data-screen="welcome">
+            <h1>Hoi! Ik ben MediMate</h1>
+          
+            <p>Ik help je huisarts om jou beter van dienst te zijn door je klachten zo goed mogelijk te beschrijven voordat je naar de huisarts gaat.</p>
+            <img src="src/chatbot-image.svg" alt="Medimate robot">
+            <section class="card">
+                <p>
+                Deze vragenlijst bestaat uit maximaal 16 vragen. Je hoeft niet alle vragen te beantwoorden, maar hoe meer informatie je over je klacht geeft, hoe beter je huisarts een beeld krijgt. Alleen de eerste vraag is verplicht. Je gegevens worden uitsluitend met je huisartsenpraktijk gedeeld.
+                </p>
+            </section>
+            <p>Let op: alle medewerkers van de huisartsenpraktijk hebben een geheimhoudingsplicht en zullen je informatie nooit delen met derden.</p>
+            <button class="button button-main" data-action="start"><p>Starten</p><img src="src/forward-arrow.svg" alt="" aria-hidden="true"></button>
+            <button class="button nav-cta"><p>Kies een andere taal</p><img class="svg-invertable" src="src/globe.svg" alt="" aria-hidden="true"></button>
+        </section>
+
+        <section class="screen screen--chat" data-screen="chat">
+            <section class="chat-content" tabindex="-1" id="chatContent" role="region" aria-label="Chat met MediMate">
+                <section class="chat-container" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions">
+                    
+                </section>
+                <section class="chat-options">
+                   
+                </section>
+                <section class="nav-bottom">
+                    <button class="button nav-cta" data-action="back"><img class="svg-invertable" src="src/back-arrow.svg"  alt="" aria-hidden="true"><p>Vorige vraag</p></button>
+                     <button class="button nav-cta" data-action="skip"><p>Sla deze vraag over</p><img class="svg-invertable" src="src/forward-arrow-black.svg"  alt="" aria-hidden="true"></button>
+                </section>
+             </section>
+
+            <section class="chat-input" id="chatInputContainer" data-screen-element="input">
+                <label for="chatInput" class="visually-hidden">
+                Typ je antwoord
+                </label>
+                <input id="chatInput" type="text" placeholder="Typ hier je antwoord..."><section class="input-buttons">
+                <button data-action="voiceChat" class="button nav-cta" aria-label="Start spraakbericht"><img class="svg-invertable"  src="src/mic.svg" alt="" aria-hidden="true"></button>
+                <button class="button nav-cta" data-action="send"  aria-label="Verstuur bericht"><img class="svg-filterable"  src="src/paper-plane.svg" alt="" aria-hidden="true"></section>
+            </section>
+            
+        </section>
+
+            
+
+
+
+        <section class="screen screen--end" data-screen="end">
+            <h1>Je bent er bijna!</h1>
+            <p>Je gegevens zijn succesvol verwerkt, controleer of alles klopt en klik op “Bevestigen en verzenden”. Je gegevens en samenvatting worden uitsluitend binnen je huisartsenpraktijk gebruikt om je zo goed mogelijk te helpen.</p>
+            <section class="card">
+                <p>
+                De samenvatting voor het afspraak:
+                </p>
+                <p>
+                    “Hoest. Duur: 1 tot 2 weken. De klacht is erger geworden. Je hebt de volgende geprobeerd om het probleem te verhelpen: hoestdrank of tabletten. Je voelt je ziek.”
+                </p>
+                <p>
+                    Je opmerking: “nachtelijke hoestbuien”
+                </p>
+                <figure><figcaption><p>Geupladete foto:</p></figcaption><img class="user-picture" src="src/neck.png" alt="Geuploadete afbeelding"></figure>
+            </section>
+            <p>Klopt alles? Klik op “Bevestigen en verzenden”-knop hieronder.</p>
+            <button class="button button-main" data-action="end"><p>Bevestigen en verzenden</p><img src="src/forward-arrow.svg" alt="Forward arrow"></button>
+            <button class="button nav-cta"><p>Informatie aanpassen</p></button>
+        </section>
+
+
+    </main>
+     <section class="overlay is-hidden" id="uploadOverlay" role="dialog" aria-modal="true" aria-labelledby="uploadTitle">
+                <h2 id="uploadTitle" class="visually-hidden"> Afbeelding uploaden </h2>
+                <section class="pop-up">
+                <section class="pop-up-nav"><button class="button nav-cta" data-action="close-upload"><img class="svg-invertable" src="src/close.svg"  alt="" aria-hidden="true"></button></section>
+                <img class="user-picture-upload" src="src/neck.png"  alt="" aria-hidden="true">
+                <section class="pop-up-nav pop-up-nav-bottom">
+                    <button class="button nav-cta" data-action="send-upload"><img src="src/paper-plane.svg" alt="" aria-hidden="true"></button>
+                </section></section>
+            </section>
+    
+<section class="overlay is-hidden" id="confirmationOverlay" role="dialog" aria-modal="true" aria-labelledby="confirmationTitle">
+  <h2 id="confirmationTitle" class="visually-hidden">Bevestiging verzonden</h2>
+  <section class="pop-up">
+    <section class="pop-up-nav">
+      <button class="button nav-cta" data-action="close-confirmation" aria-label="Sluit bevestiging">
+        <img class="svg-invertable" src="src/close.svg" alt="" aria-hidden="true">
+      </button>
+    </section>
+
+    <section class="pop-up-content">
+        <h2>Bedankt!</h2>
+      <img src="src/chatbot-image.svg" alt="MediMate robot" class="confirmation-robot">
+      <p>Je gegevens zijn succesvol naar je huisarts verzonden! MediMate bedankt je voor het invullen van de vragenlijst.</p>
+    </section>
+
+    <section class="pop-up-nav pop-up-nav-bottom">
+      <button class="button button-main" data-action="confirm-and-restart">
+        <p>Terug naar start</p>
+        <img src="src/forward-arrow.svg" alt="">
+      </button>
+    </section>
+  </section>
+</section>
+
+<script src="main.js" defer></script>
+</body>
+</html>
